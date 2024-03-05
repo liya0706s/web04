@@ -35,22 +35,19 @@
 				<a class="blo" href="?do=que">問卷調查</a>
 			</div>
 			<div class="hal" id="main">
-				<div style="display:flex;">
+				<div style="display: flex;">
 					<marquee style="width: 80%;">拉拉烏拉拉，怎麼有做不完的題組ㄋ，明天要開始看學科ㄌ~~~~~</marquee>
-					<span style="width: 15%; display:inline-block;">
+					<span style="width:15%; display:inline-block;">
 						<?php
-						// 如果沒有登入的session紀錄，會有超連結寫會員登入
-						if (!isset($_SESSION['user'])) {
+						if (!$_SESSION['user']) {
 						?>
-							<a href="?do=login">會員登入</a>
+							<a href="?do=login">登入</a>
 						<?php
 						} else {
-							// 反之是有登入紀錄，歡迎, 登入者 登出的按鈕
 						?>
-							歡迎,<?= $_SESSION['user']; ?>
+							歡迎, <?= $_SESSION['user']; ?>
 							<button onclick="location.href='./api/logout.php'">登出</button>
 							<?php
-							// 如果登入的紀錄，帳號是admin
 							if ($_SESSION['user'] == 'admin') {
 							?>
 								<button onclick="location.href='back.php'">管理</button>
@@ -58,29 +55,30 @@
 							}
 						}
 						?>
+
 					</span>
 				</div>
 
-					<div class="">
-						<!-- 1234 -->
-						<?php
-						$do = $_GET['do'] ?? 'main';
-						$file = "./front/{$do}.php";
-						if (file_exists($file)) {
-							include "$file";
-						} else {
-							include "./front/main.php";
-						}
-						?>
-					</div>
+				<div class="">
+					<!-- 1234 -->
+					<?php
+					$do = $_GET['do'] ?? 'main';
+					$file = "./front/{$do}.php";
+					if (file_exists($file)) {
+						include "$file";
+					} else {
+						include "./front/main.php";
+					}
+					?>
 				</div>
 			</div>
 		</div>
-		<div id="bottom">
-			本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2012健康促進網社群平台 All Right Reserved
-			<br>
-			服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
-		</div>
+	</div>
+	<div id="bottom">
+		本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2012健康促進網社群平台 All Right Reserved
+		<br>
+		服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
+	</div>
 	</div>
 
 </body>
