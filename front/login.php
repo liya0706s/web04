@@ -12,12 +12,45 @@
         <tr>
             <td>
                 <input type="button" value="登入" onclick="login()">
-                <input type="button" value="清除" onclick="clean()">
+                <input type="reset" value="清除" onclick="clean()">
             </td>
             <td>
-                <a href="./forget.php">忘記密碼</a>
-                <a href="./reg.php">尚未註冊</a>
+                <a href="?do=forget">忘記密碼</a> |
+                <a href="?do=reg">尚未註冊</a>
             </td>
         </tr>
     </table>
 </fieldset>
+
+<script>
+    function login() {
+        let acc = $("#acc").val();
+        let pw = $("#pw").val();
+        $.post('./api/chk_acc.php', {
+            acc
+        }, (res) => {
+            if (parseInt(res) == 0) {
+                alert("查無帳號")
+            } else {
+                $.post('./api/chk_pw.php', {
+                    acc,
+                    pw
+                }, (res) => {
+                    if (parseInt(res) == 1) {
+                        if (acc == 'admin') {
+                            location.href = "back.php";
+                        } else {
+                            location.href = "index.php";
+                        }
+                    } else {
+                        alert("密碼錯誤");
+                    }
+                })
+            }
+        })
+    }
+
+    function clean(){
+        $("input[type='text'], input[type='password']").val("");
+    }
+</script>

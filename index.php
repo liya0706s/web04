@@ -24,7 +24,7 @@
 			<a href="index.php" style="float:right">回首頁</a>
 		</div>
 		<div id="title2">
-			<a href="index.php"><img src="./icon/02B01.jpg" title="健康促進網-回首頁"></a>
+			<a href="index.php"><img src="./icon/health_banner-01.jpg" title="健康促進網-回首頁"></a>
 		</div>
 		<div id="mm">
 			<div class="hal" id="lef">
@@ -36,7 +36,7 @@
 			</div>
 			<div class="hal" id="main">
 				<div>
-					<marquee style="width: 80%;">讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
+					<marquee style="width: 80%;">拉拉烏拉拉，怎麼有做不完的題組ㄋ，明天要開始看學科ㄌ~~~~~</marquee>
 					<span style="width:18%; display:inline-block;">
 						<a href="?do=login">會員登入</a>
 					</span>
@@ -45,7 +45,7 @@
 						<?php
 						$do=$_GET['do']??'main';
 						$file="./front/{$do}.php";
-						if(isset($file)){
+						if(file_exists($file)){
 							include "$file";
 						}else{
 							include "./front/main.php";
