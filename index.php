@@ -36,7 +36,7 @@
 			</div>
 			<div class="hal" id="main">
 				<div style="display:flex;">
-					<marquee style="width: 80%;">拉拉烏拉拉，怎麼有做不完的題組ㄋ，明天要開始看學科ㄌ~~~~~</marquee>
+					<marquee style="width: 80%;">加油加油加油!!!!!!!!!!今天把題組二做完，打兩次低逼~~~~~~</marquee>
 					<span style="width: 15%; display:inline-block;">
 						<?php
 						// 如果沒有登入的session紀錄，會有超連結寫會員登入
