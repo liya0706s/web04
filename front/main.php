@@ -1,32 +1,29 @@
 <style>
     .tags {
         display: flex;
-        margin-left: 1px;
     }
 
-    .tag {
-        width: 100px;
-        padding: 5px 10px;
+    .tag{
+        padding:5px 10px;
         border: 1px black solid;
-        margin-left: -1px;
+        background-color: lightgray;
+        width: 100px;
         text-align: center;
-        background-color: lightgrey;
         cursor: pointer;
     }
 
-    article section {
-        border: 1px solid black;
-        min-height: 480px;
-        /* 上方的線會-1px */
-        margin-top: -1px; 
+    article section{
+        border: 1px black solid;
+        /* 這是讓文章上方的邊框線隱藏 */
+        margin-top:-1px;
         display: none;
-        /* 文章內的邊距 */
-        padding:15px;
+        padding: 15px;
+        min-height: 480px;
     }
 
     .active{
         background-color: white;
-        border-bottom:1px solid white;        
+        border-bottom: 1px solid white;
     }
 </style>
 
@@ -131,5 +128,12 @@
 </section>
 
 <script>
-    
+$(".tag").on('click', function(){
+    $(".tag").removeClass('active')
+    $(this).addClass('active')
+
+    let id=$(this).attr('id').replace('sec','section');
+    $("section").hide();
+    $("#"+id).show();    
+})
 </script>
