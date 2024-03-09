@@ -8,7 +8,7 @@
         vertical-align: top;
     }
 
-    .list-items{
+    .news-list{
         width: 600px;
     }
 </style>
@@ -42,10 +42,22 @@ $(".type-item").on('click', function(){
 function getList(type){
     $.get('./api/get_list.php',{type},(list)=>{
         $(".list-items").html(list);
-        $("article").hide();
+        $(".article").hide();
         $(".list-items").show();
     })
 }
+
+
+function getNews(id){
+    $.get('./api/get_news.php', {id}, (news)=>{
+        $(".article").html(news)
+        $(".list-items").hide();
+        $(".article").show();
+    })
+}
+
+
+
 
 
 
