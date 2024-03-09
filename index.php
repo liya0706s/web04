@@ -10,6 +10,20 @@
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-1.9.1.min.js"></script>
 	<script src="./js/js.js"></script>
+
+	<style>
+		.pop {
+			background:rgba(51, 51, 51, 0.8);
+			color: #FFF;
+			min-height: 100px;
+			width: 300px;
+			/* position: fixed; */
+			position: absolute;
+			display: none;
+			z-index: 9999;
+			overflow: auto;
+		}
+	</style>
 </head>
 
 <body>
@@ -61,26 +75,26 @@
 					</span>
 				</div>
 
-					<div class="">
-						<!-- 1234 -->
-						<?php
-						$do = $_GET['do'] ?? 'main';
-						$file = "./front/{$do}.php";
-						if (file_exists($file)) {
-							include "$file";
-						} else {
-							include "./front/main.php";
-						}
-						?>
-					</div>
+				<div class="">
+					<!-- 1234 -->
+					<?php
+					$do = $_GET['do'] ?? 'main';
+					$file = "./front/{$do}.php";
+					if (file_exists($file)) {
+						include "$file";
+					} else {
+						include "./front/main.php";
+					}
+					?>
 				</div>
 			</div>
 		</div>
-		<div id="bottom">
-			本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2024健康促進網社群平台 All Right Reserved
-			<br>
-			服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
-		</div>
+	</div>
+	<div id="bottom">
+		本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2024健康促進網社群平台 All Right Reserved
+		<br>
+		服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
+	</div>
 	</div>
 
 </body>
