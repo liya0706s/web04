@@ -19,10 +19,8 @@
         ?>
 
             <tr>
-                <td class="clo">
-                    <div style="cursor: pointer;" class="title" data-id="<?= $row['id']; ?>">
-                        <?= $row['title']; ?>
-                    </div>
+                <td style="cursor: pointer;" class="title clo" data-id="<?= $row['id']; ?>">
+                    <?= $row['title']; ?>
                 </td>
                 <td>
                     <div id="s<?= $row['id']; ?>">
@@ -35,10 +33,10 @@
                 <!-- 根據登入狀態顯示按讚的程式 -->
                 <td class="ct">
                     <?php
-                    if(isset($_SESSION['user'])){
-                        if($Log->count(['news'=>$row['id'], 'acc'=>$_SESSION['user']])){
+                    if (isset($_SESSION['user'])) {
+                        if ($Log->count(['news' => $row['id'], 'acc' => $_SESSION['user']])) {
                             echo "<a href='Javascript:good({$row['id']})'> 收回讚 </a>";
-                        }else{
+                        } else {
                             echo "<a href='Javascript:good({$row['id']})'> 讚 </a>";
                         }
                     }
@@ -74,8 +72,10 @@
         $(`#s${id}, #a${id}`).toggle();
     })
 
-    function good(news){
-        $.post('./api/good.php',{news}, ()=>{
+    function good(news) {
+        $.post('./api/good.php', {
+            news
+        }, () => {
             location.reload();
         })
     }
