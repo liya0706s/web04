@@ -20,9 +20,9 @@
 <script>
     function more(){
         let opt=`
-            <div id="opt">選項
-                <input type="text" name="option[]">
-            </div>`
+        <div id="opt">選項
+            <input type="text" name="option[]">
+        </div>`
         $("#opt").after(opt);
     }
 </script>

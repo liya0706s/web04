@@ -15,9 +15,7 @@
 
         $rows = $News->all(['sh' => 1], " limit $start, $div");
         foreach ($rows as $row) {
-
         ?>
-
             <tr>
                 <td style="cursor: pointer;" class="title clo" data-id="<?= $row['id']; ?>">
                     <?= $row['title']; ?>
