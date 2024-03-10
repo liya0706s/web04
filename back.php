@@ -39,7 +39,7 @@
 					<marquee style="width: 80%;">拉拉烏拉拉，怎麼有做不完的題組ㄋ，明天要開始看學科ㄌ~~~~~</marquee>
 					<span style="width:15%; display:inline-block;">
 						<?php
-						if (!$_SESSION['user']) {
+						if (!isset($_SESSION['user'])) {
 						?>
 							<a href="?do=login">登入</a>
 						<?php
